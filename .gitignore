@@ -16,4 +16,5 @@ bin/
 cbuild
 */.DS_Store
 .vscode
-go.sum
+/main
+**/main.exe

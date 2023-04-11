@@ -1,14 +1,14 @@
 package boot
 
 import (
-	_ "GoViewFile/packed"
+	// _ "GoViewFile/packed"
 
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/swagger"
 )
 
 // 用于应用初始化。
-func init() {
+func Init() {
 	s := g.Server()
 	s.Plugin(&swagger.Swagger{})
 }
