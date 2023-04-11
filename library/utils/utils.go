@@ -31,7 +31,7 @@ func ComparePath(a string, b string) bool {
 	}
 }
 
-//转pdf
+// 转pdf
 func ConvertToPDF(filePath string) string {
 	//判断转换后的pdf文件是否已经存在
 	fileName := strings.Split(path.Base(filePath), ".")[0] + ".pdf"
@@ -64,8 +64,13 @@ func ConvertToPDF(filePath string) string {
 	}
 }
 
-//pdf增加水印
+// pdf增加水印
 func WaterMark(pdfPath string, watermark string) string {
+	return pdfPath
+}
+
+// pdf增加水印
+func WaterMark1(pdfPath string, watermark string) string {
 	if watermark == "" {
 		watermark = g.Config().GetString("WaterMark.default")
 	}
@@ -127,7 +132,7 @@ func ConvertToImg(filePath string) string {
 	}
 }
 
-//只支持linux
+// 只支持linux
 func MsgToPdf(filePath string) string {
 	//判断转换后的pdf文件是否已经存在
 	fileName := strings.Split(path.Base(filePath), ".")[0] + ".pdf"
@@ -156,7 +161,7 @@ func MsgToPdf(filePath string) string {
 	}
 }
 
-//直接通过字符串执行shell命令，不拼接命令
+// 直接通过字符串执行shell命令，不拼接命令
 func Doexec(cmdStr string) (string, bool) {
 	cmd := exec.Command("bash", "-c", cmdStr)
 	log.Println("cmd:", cmd)
@@ -169,7 +174,7 @@ func Doexec(cmdStr string) (string, bool) {
 	}
 }
 
-//执行shell命令
+// 执行shell命令
 func interactiveToexec(commandName string, params []string) (string, bool) {
 	cmd := exec.Command(commandName, params...)
 	log.Println("cmd:", cmd)
@@ -240,7 +245,7 @@ func IsInArr(key string, arr []string) bool {
 	return false
 }
 
-//excel解析
+// excel解析
 func ExcelParse(filePath string) []map[string]interface{} {
 	xlFile, err := xlsx.OpenFile(filePath)
 	if err != nil {
